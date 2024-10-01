@@ -72,3 +72,35 @@ If you don't want to have your app dual licensed, just remove one (or both) of t
 There are two empty spaces in the MIT license you need to fill out: `` and `mdShakilHossainNsu2018 <shakilnsu2018@gmail.com>`.
 
 [trunk]: https://github.com/thedodd/trunk
+
+### run command
+sudo trunk serve --open
+- here sudo is needed cause mac doesn't allow hot reload without it. Very very strange 
+
+# Yew project structure
+my-yew-app/
+│
+├── src/
+│   ├── components/
+│   │   ├── mod.rs            # Re-exports all the components
+│   │   ├── header.rs         # Example component: Header
+│   │   ├── footer.rs         # Example component: Footer
+│   │   └── navbar.rs         # Example component: Navbar
+│   │
+│   ├── pages/
+│   │   ├── mod.rs            # Re-exports all the pages
+│   │   ├── home.rs           # Example page: Home
+│   │   ├── about.rs          # Example page: About
+│   │   └── not_found.rs      # Example page: 404 Not Found
+│   │
+│   ├── app.rs                # Main Yew app struct and routing logic
+│   ├── lib.rs                # Library root (main entry point for the app)
+│   └── main.rs               # Main file for starting the app (for Trunk)
+│
+├── static/                   # Static assets like images, CSS, etc.
+│   └── styles.css
+│
+├── Cargo.toml                # Cargo configuration (dependencies, package info)
+├── Trunk.toml                # Trunk configuration for building and serving
+└── index.html                # Main HTML file loaded by Trunk (linked to the WASM app)
+
